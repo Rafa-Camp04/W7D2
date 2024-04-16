@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         # debugger
         if @user.save
-            login(@user)
+            login!(@user)
             redirect_to users_url
         else
             render json: @user.errors.full_messages, status: 422
@@ -21,7 +21,8 @@ class UsersController < ApplicationController
     end
 
     def show
-        render json: self.email
+        @user = current_user
+        render json: @user.email
     end
 
 
