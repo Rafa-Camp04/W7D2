@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        # debugger
+        debugger
         if @user.save
             login!(@user)
             redirect_to users_url
@@ -25,6 +25,7 @@ class UsersController < ApplicationController
         render json: @user.email
     end
 
+    
 
 
     private

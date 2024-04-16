@@ -1,6 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <style> 
+        header h1{
+          color: blue;
+        }
+
+        .login_button {
+          color: white;
+    
+        }
+
+        header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        a{
+          background-color: blue;
+          border-radius: 4px;
+          padding: 10px;
+          color: white;
+        }
+
+        form{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-evenly;
+          width: 75%;
+          height: 200px;
+        }
+        
+      </style>
+  
     <title>MusicApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -10,6 +44,7 @@
   </head>
 
   <header>  
+            <h1>Music App</h1>
             <% if logged_in? %>
               <form action= "<%= session_url %>" method="POST">
               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -17,9 +52,12 @@
               <input type="submit" value="Logout">
               </form>
             <% else %>
-              <a href="<%= new_session_url %>">Login</a>
+              <div>
+              <a class = "login_button" href="<%= new_session_url %>">Login</a>
               <a href="<%= new_user_url %>">Sign-up</a>
+              </div>
             <% end %>
+            
   </header>
 
 
