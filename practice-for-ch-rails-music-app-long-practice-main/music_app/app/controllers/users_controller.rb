@@ -20,6 +20,10 @@ class UsersController < ApplicationController
         end 
     end
 
+    def show
+        render json: self.email
+    end
+
 
 
     private
